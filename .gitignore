@@ -32,6 +32,7 @@ MANIFEST
 __pycache__/
 local_settings.py
 db.sqlite3
+**/migrations/
 
 # Sphinx documentation
 docs/_build/
@@ -120,3 +121,8 @@ __pycache__/
 *.joblib
 *.pkl
 *.h5
+
+# image file
+*.png
+*.jpg
+*.jpeg

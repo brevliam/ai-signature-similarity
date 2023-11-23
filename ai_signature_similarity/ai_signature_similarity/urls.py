@@ -16,7 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from signature_similarity.views import AnchorSignatureUpload, PredictSignatureSimilarity
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('upload-anchor/', AnchorSignatureUpload.as_view(), name='upload_anchor'),
+    path('predict-similarity/', PredictSignatureSimilarity.as_view(), name='predict_similarity')
 ]
+
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL,
+                              document_root=settings.MEDIA_ROOT)
